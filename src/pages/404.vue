@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="block">
-            <!--<router-link class="button is-primary" to="/">首页</router-link>-->
+            <router-link class="button is-primary" to="/">首页</router-link>
         </div>
     </div>
 </template>

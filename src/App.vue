@@ -7,6 +7,7 @@
 
 <script>
 import 'bulma'
+import 'animate.css'
 export default {
   name: 'app'
 }

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <!--<img src="./assets/logo.png">-->
     <router-view></router-view>
   </div>
 </template>
@@ -8,6 +8,7 @@
 <script>
 import 'bulma'
 import 'animate.css'
+import 'font-awesome/css/font-awesome.min.css'
 export default {
   name: 'app'
 }

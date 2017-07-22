@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 axios.defaults.baseURL = '/api/';
-axios.defaults.headers.common['Authorization'] = 'AUTH_TOKEN';
 axios.defaults.validateStatus = function (status) {
     return status >= 200 && status < 500;
 };

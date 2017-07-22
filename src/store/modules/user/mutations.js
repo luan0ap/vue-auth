@@ -1,3 +1,3 @@
-export const login = (state, token) => {
-    state.token = token;
+export const fetchUserData = (state, data) => {
+    state.userData = data;
 };

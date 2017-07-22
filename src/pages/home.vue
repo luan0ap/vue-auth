@@ -1,5 +1,5 @@
 <template>
-    <div style="width:100%;" class="box">
+    <div style="margin: 1rem 0;" class="box">
         <div class="content" style="word-wrap: break-word;">
             <p>用户名：{{userData.username}}</p>
             <p>创建时间：{{userData.createdAt}}</p>

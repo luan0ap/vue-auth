@@ -27,10 +27,10 @@ export const signup = async ({ commit }, data) => {
 };
 
 export const logout = async ({ commit }) => {
-    router.push({ name: 'Signin' });
     localStorage.clear();
     commit('fetchUserData', {});
     const res = await axios.post('auth/logout');
+    router.push({ name: 'Signin' });    
 };
 
 export const fetchUserData = async ({ commit }) => {

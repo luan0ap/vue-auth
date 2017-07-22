@@ -11,7 +11,8 @@ import { getItem } from '@/storage'
 Vue.use(Router)
 
 const router = new Router({
-	mode: 'hash',
+	mode: 'history',
+	base: '/vueAuth/',
 	routes: [{
 		path: '/',
 		name: 'Hello',

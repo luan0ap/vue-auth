@@ -30,10 +30,10 @@ export const logout = async ({ commit }) => {
     localStorage.clear();
     commit('fetchUserData', {});
     const res = await axios.post('auth/logout');
-    router.push({ name: 'Signin' });    
+    router.push({ name: 'Signin' });
 };
 
-export const fetchUserData = async ({ commit }) => {
+export const fetchUserData = async ({ dispatch, commit }) => {
     const id = getItem('user_id');
     const token = getItem('token');
     if (!id || !token) {
@@ -41,6 +41,12 @@ export const fetchUserData = async ({ commit }) => {
         return;
     }
     const res = await axios.get(`users/${id}`, { headers: { token } });
+
+    if (res.status === 401) {
+        await dispatch('logout');
+        return;
+    }
+
     if (res.status !== 200) {
         commit('setMsg', res.data.msg);
         return;

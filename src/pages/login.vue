@@ -1,49 +1,44 @@
 <template>
-    <div style="width: 500px;margin: 0 auto;">
-        <msg></msg>
-        <div class="field is-horizontal">
-            <div class="field-label is-normal">
-                <label class="label">用户名</label>
-            </div>
-            <div class="field-body">
-                <div class="field">
-                    <p class="control has-icons-left">
-                        <input class="input" type="text" v-model="form.username">
-                        <span class="icon is-small is-left">
-                            <i class="fa fa-user"></i>
-                        </span>
-                    </p>
-                </div>
-            </div>
+    <div style="margin: auto;width: 400px;" class="box">
+        <h2 class="field">登录
+            <router-link :to="{name:'Logup'}" class="is-pulled-right">注册</router-link>
+        </h2>
+        <div class="field">
+            <p class="control has-icons-left has-icons-right">
+                <input class="input" type="text" placeholder="username" v-model="form.username">
+                <span class="icon is-small is-left">
+                    <i class="fa fa-user"></i>
+                </span>
+                <span class="icon is-small is-right">
+                    <i class="fa fa-check"></i>
+                </span>
+            </p>
         </div>
-        <div class="field is-horizontal">
-            <div class="field-label is-normal">
-                <label class="label">密码</label>
-            </div>
-            <div class="field-body">
-                <div class="field">
-                    <div class="control has-icons-left">
-                        <input class="input" type="password" v-model="form.password" @keyup.enter="_login">
-                        <span class="icon is-small is-left">
-                            <i class="fa fa-lock"></i>
-                        </span>
-                    </div>
-                </div>
-            </div>
+        <div class="field">
+            <p class="control has-icons-left has-icons-right">
+                <input class="input" type="password" placeholder="password" v-model="form.password" @keyup.enter="_login">
+                <span class="icon is-small is-left">
+                    <i class="fa fa-lock"></i>
+                </span>
+                <span class="icon is-small is-right">
+                    <i class="fa fa-check"></i>
+                </span>
+            </p>
         </div>
-        <div class="field is-horizontal">
-            <div class="field-label is-normal">
-                <label class="label"></label>
-            </div>
-            <div class="field-body">
-                <div class="field">
-                    <div class="control has-icons-left">
-                        <button class="button is-primary" @click="_login">
-                            登录
-                        </button>
-                    </div>
-                </div>
-            </div>
+        <div class="field">
+            <msg></msg>
+        </div>
+        <div class="field">
+            <small>
+                <a href="#">忘记密码？</a>
+            </small>
+        </div>
+        <div class="field">
+            <p class="control">
+                <button class="button is-success is-fullwidth" @click="_login">
+                    登录
+                </button>
+            </p>
         </div>
     </div>
 </template>
@@ -67,7 +62,9 @@ export default {
     methods: {
         ...mapActions(['login']),
         _login() {
-            this.login({ ...this.form });
+            if (this.form.username && this.form.password) {
+                this.login({ ...this.form });
+            }
         }
     },
     mounted() {

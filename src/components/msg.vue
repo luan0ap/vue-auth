@@ -1,5 +1,5 @@
 <template>
-    <div class="notification is-danger animated " :class="[msg?'fadeIn':'fadeOut']" v-if="msg">
+    <div class="notification is-danger animated" :class="[msg?'fadeIn':'fadeOut']" v-if="msg" style="padding: 0.5rem;">
         <button class="delete" @click="setMsg('')"></button>
         {{msg}}
     </div>

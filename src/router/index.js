@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Hello from '@/pages/Hello'
 import Login from '@/pages/login'
+import Logup from '@/pages/logup'
 import home from '@/pages/home'
 import Forbidden from '@/pages/403'
 import NotFound from '@/pages/404'
@@ -26,6 +27,11 @@ export default new Router({
       path: '/login',
       name: 'Login',
       component: Login,
+    },
+    {
+      path: '/logup',
+      name: 'Logup',
+      component: Logup,
     },
     {
       path: '/404',

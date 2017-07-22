@@ -1,6 +1,4 @@
-# demo
-
-> A Vue.js project
+# [Live](http://115.159.68.51/vueAuth/) Don't reflash!!!
 
 ## Build Setup
 

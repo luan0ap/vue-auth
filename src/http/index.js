@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = '/api/';
+axios.defaults.baseURL = '/api/vueAuth/';
 axios.defaults.validateStatus = function (status) {
     return status >= 200 && status < 500;
 };

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <router-link class="button is-primary" to="/login">去登陆</router-link>
+    <router-link class="button is-primary" to="/signin">去登陆</router-link>
   </div>
 </template>
 <script>

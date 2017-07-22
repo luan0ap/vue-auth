@@ -1,7 +1,7 @@
 import axios from '@/http';
 import router from '@/router';
 import { setItem, getItem } from '@/storage';
-export const login = async ({ commit }, data) => {
+export const signin = async ({ commit }, data) => {
     const res = await axios.post('auth/login', data);
     if (res.status !== 200) {
         commit('setMsg', res.data.msg);
@@ -15,7 +15,7 @@ export const login = async ({ commit }, data) => {
     router.push({ name: 'Home' });
 };
 
-export const logup = async ({ commit }, data) => {
+export const signup = async ({ commit }, data) => {
     const res = await axios.post('users', data);
     if (res.status !== 200) {
         commit('setMsg', res.data.msg);
@@ -23,11 +23,11 @@ export const logup = async ({ commit }, data) => {
     }
 
     commit('setMsg', '');
-    router.push({ name: 'Login' });
+    router.push({ name: 'Signin' });
 };
 
 export const logout = async ({ commit }) => {
-    router.push({ name: 'Login' });
+    router.push({ name: 'Signin' });
     localStorage.clear();
     commit('fetchUserData', {});
     const res = await axios.post('auth/logout');
@@ -37,7 +37,7 @@ export const fetchUserData = async ({ commit }) => {
     const id = getItem('user_id');
     const token = getItem('token');
     if (!id || !token) {
-        router.push({ name: 'Login' });
+        router.push({ name: 'Signin' });
         return;
     }
     const res = await axios.get(`users/${id}`, { headers: { token } });

@@ -1,7 +1,7 @@
 <template>
     <div style="margin: auto;width: 400px;" class="box">
         <h2 class="field">登录
-            <router-link :to="{name:'Logup'}" class="is-pulled-right">注册</router-link>
+            <router-link :to="{name:'Signup'}" class="is-pulled-right">注册</router-link>
         </h2>
         <div class="field">
             <p class="control has-icons-left has-icons-right">
@@ -16,7 +16,7 @@
         </div>
         <div class="field">
             <p class="control has-icons-left has-icons-right">
-                <input class="input" type="password" placeholder="password" v-model="form.password" @keyup.enter="_login">
+                <input class="input" type="password" placeholder="password" v-model="form.password" @keyup.enter="_signin">
                 <span class="icon is-small is-left">
                     <i class="fa fa-lock"></i>
                 </span>
@@ -35,7 +35,7 @@
         </div>
         <div class="field">
             <p class="control">
-                <button class="button is-success is-fullwidth" @click="_login">
+                <button class="button is-success is-fullwidth" @click="_signin">
                     登录
                 </button>
             </p>
@@ -60,10 +60,10 @@ export default {
         ...mapState({})
     },
     methods: {
-        ...mapActions(['login']),
-        _login() {
+        ...mapActions(['signin']),
+        _signin() {
             if (this.form.username && this.form.password) {
-                this.login({ ...this.form });
+                this.signin({ ...this.form });
             }
         }
     },

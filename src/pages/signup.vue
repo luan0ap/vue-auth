@@ -1,7 +1,7 @@
 <template>
     <div style="margin: auto;width: 400px;" class="box">
         <h2 class="field">注册
-            <router-link :to="{name:'Login'}" class="is-pulled-right">登录</router-link>
+            <router-link :to="{name:'Signin'}" class="is-pulled-right">登录</router-link>
         </h2>
         <div class="field">
             <p class="control has-icons-left has-icons-right">
@@ -27,7 +27,7 @@
         </div>
         <div class="field">
             <p class="control has-icons-left has-icons-right">
-                <input class="input" type="password" placeholder="password" v-model="form.password1" @keyup.enter="_logup">
+                <input class="input" type="password" placeholder="password" v-model="form.password1" @keyup.enter="_signup">
                 <span class="icon is-small is-left">
                     <i class="fa fa-lock"></i>
                 </span>
@@ -41,7 +41,7 @@
         </div>
         <div class="field">
             <p class="control">
-                <button class="button is-success is-fullwidth" @click="_logup">
+                <button class="button is-success is-fullwidth" @click="_signup">
                     注册
                 </button>
             </p>
@@ -64,9 +64,9 @@ export default {
         }
     },
     methods: {
-        ...mapActions(['logup']),
+        ...mapActions(['signup']),
         ...mapMutations(['setMsg']),
-        _logup() {
+        _signup() {
             if (!this.form.username) {
                 this.setMsg('请输入用户名！');
                 return;
@@ -83,7 +83,7 @@ export default {
             }
 
             this.setMsg('');
-            this.logup({ ...this.form })
+            this.signup({ ...this.form })
         }
     },
     mounted() {
